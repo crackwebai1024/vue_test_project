@@ -43,6 +43,9 @@
             placeholder="Customer Name"
             v-on:change="setCustomerName"
           />
+          <p class="ma-0 d-flex justify-center red--text">
+            {{ error }}
+          </p>
           <v-container>
             <v-row>
               <v-container class="d-flex">
@@ -74,6 +77,7 @@ export default {
     startDate: new Date().toISOString().substr(0, 10),
     endDate: new Date().toISOString().substr(0, 10),
     customerName: "",
+    error: "",
   }),
   methods: {
     ...mapActions(["fetchInvoices"]),
@@ -87,9 +91,11 @@ export default {
     },
     setCustomerName(customerName) {
       this.customerName = customerName;
+      this.error = "";
     },
     search() {
       if (this.customerName === "") {
+        this.error = "Invalid customer name!";
         return;
       }
       let intdate = {
