@@ -21,18 +21,13 @@
         :issingleuser="issingleuser"
         v-on:closeOtoOModal="closeOtoOModal"
       />
-      <OnetoM
-        v-bind:otmdialog="otmdialog"
-        v-on:closeOtoMModal="closeOtoMModal"
-      />
     </v-container>
   </v-card>
 </template>
 <script>
-import OnetoM from "./OnetoM.vue";
 import OnetoOne from "./OnetoOne.vue";
 export default {
-  components: { OnetoOne, OnetoM },
+  components: { OnetoOne },
   name: "MailSender",
   props: ["selected"],
   data() {
@@ -54,9 +49,6 @@ export default {
         this.otodialog = true;
         this.issingleuser = false;
       }
-    },
-    closeOtoMModal() {
-      this.otmdialog = false;
     },
     closeOtoOModal() {
       this.otodialog = false;
