@@ -1,7 +1,3 @@
-# Vuex Todo Manager
-
-> This project is part of the Vuex Crash Course on YouTube
-
 ## Project setup
 
 ```

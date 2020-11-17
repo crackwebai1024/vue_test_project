@@ -504,3 +504,46 @@ export const invoiceData = [
     actions: "",
   },
 ];
+
+export const creatInvData = [
+  {
+    invoice: "234324",
+    consolidated: "Con",
+    customerName: "CUSTOMER NAME",
+    vorsup: "VENUE OR SUPPLIER",
+    net: "£150.00",
+    gross: "01/04/20",
+  },
+  {
+    invoice: "234344",
+    consolidated: "Con",
+    customerName: "CUSTOMER NAME",
+    vorsup: "VENUE OR SUPPLIER",
+    net: "£150.00",
+    gross: "01/04/20",
+  },
+  {
+    invoice: "234524",
+    consolidated: "Con",
+    customerName: "CUSTOMER NAME",
+    vorsup: "VENUE OR SUPPLIER",
+    net: "£150.00",
+    gross: "01/04/20",
+  },
+  {
+    invoice: "945324",
+    consolidated: "Con",
+    customerName: "CUSTOMER NAME",
+    vorsup: "VENUE OR SUPPLIER",
+    net: "£150.00",
+    gross: "01/04/20",
+  },
+  {
+    invoice: "440324",
+    consolidated: "Con",
+    customerName: "CUSTOMER NAME",
+    vorsup: "VENUE OR SUPPLIER",
+    net: "£150.00",
+    gross: "01/04/20",
+  },
+];

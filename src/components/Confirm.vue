@@ -3,10 +3,9 @@
     <v-dialog
       v-model="opendialog"
       persistent
-      max-width="450"
+      max-width="500"
       class="confirmdig"
     >
-      <v-icon class="clsicon" @click="$emit('closeModal')">fas fa-times</v-icon>
       <v-card>
         <v-card-title class="headline">
           Are you sure you wish to create Invoices for the selected bookings?
@@ -17,15 +16,23 @@
             No
           </v-btn>
           <v-btn class="grey darken-1" text @click="$emit('closeModal')">
-            Yes
+            <router-link to="/createdinv">
+              Yes
+            </router-link>
           </v-btn>
         </v-card-actions>
       </v-card>
-      <h1 class="comment">
-        if you press yes, it takes you to VIEW INVOICES, showing the ones you
-        'created'
-      </h1>
     </v-dialog>
+    <h2 class="comment" :class="opendialog ? 'd-block' : 'd-none'">
+      if you press yes, it takes you to VIEW INVOICES, showing the ones you
+      'created'
+    </h2>
+    <v-icon
+      class="clsicon"
+      :class="opendialog ? 'd-block' : 'd-none'"
+      @click="$emit('closeModal')"
+      >fas fa-times
+    </v-icon>
   </v-row>
 </template>
 <script>
@@ -45,7 +52,7 @@ export default {
   line-height: 2.5rem;
 }
 .clsicon {
-  position: absolute;
+  position: fixed;
   top: calc(50vh - 150px);
   left: calc(50vw + 225px);
   display: flex;
@@ -53,11 +60,15 @@ export default {
   color: white;
   display: flex;
   justify-content: flex-end;
+  z-index: 3000;
 }
 .comment {
-  position: absolute;
-  bottom: 0px;
+  position: fixed;
+  bottom: 20px;
+  padding-left: 30px;
+  right: 20px !important;
   color: white;
+  z-index: 3000;
 }
 @media only screen and (max-width: 500px) {
   .clsicon {

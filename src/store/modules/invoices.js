@@ -1,12 +1,14 @@
 import axios from "axios";
-import { invoiceData } from "./invoicedata";
+import { invoiceData, creatInvData } from "./invoicedata";
 
 const state = {
   invoices: invoiceData,
+  createdinvs: creatInvData,
 };
 
 const getters = {
   allInvoices: (state) => state.invoices,
+  createdInvs: (state) => state.createdinvs,
 };
 
 const getFormattedDate = (date) => {
