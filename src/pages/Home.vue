@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-bar></app-bar>
+    <app-bar />
     <v-navigation-drawer
       color="blue-grey"
       darken-3

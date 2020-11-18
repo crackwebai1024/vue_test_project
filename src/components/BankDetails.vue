@@ -4,9 +4,10 @@
     <v-divider />
     <v-container fluid>
       <v-list>
-        <v-list-item v-for="item in details" key="item.name">
-          <p class="mb-1">
-            <p class="detname mb-0">{{ item.name }}</p>{{ item.value }}
+        <v-list-item v-for="item in details" v-bind:key="item.name">
+          <p class="mb-1 d-flex">
+            <label class="detname mb-0">{{ item.name }}</label>
+            {{ item.value }}
           </p>
         </v-list-item>
       </v-list>

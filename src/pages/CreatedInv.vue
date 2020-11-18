@@ -38,7 +38,6 @@ export default {
   methods: {
     setSelected(selections) {
       this.selected = selections;
-      console.log("this is on parent component", this.selected);
     },
   },
 };

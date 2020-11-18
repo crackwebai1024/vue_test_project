@@ -14,14 +14,14 @@
     </div>
     <v-container fluid>
       <v-row>
-        <v-col md="6" xs12>
+        <v-col md="6" sm="12" xs12>
           <v-list>
             <v-list-item v-for="(item, i) in items" :key="i">
               <v-row>
                 <v-col sm="3" class="font-weight-bold">{{ item.name }}</v-col>
-                <v-col sm="3" class="font-weight-normal">{{
-                  item.value
-                }}</v-col>
+                <v-col sm="3" class="font-weight-normal">
+                  {{ item.value }}
+                </v-col>
               </v-row>
             </v-list-item>
           </v-list>
@@ -110,7 +110,7 @@ export default {
   padding: 15px;
 }
 @media only screen and (max-width: 600px) {
-  div.container.pa-10 {
+  div.container.px-10 {
     padding: 0.25rem !important;
   }
 }

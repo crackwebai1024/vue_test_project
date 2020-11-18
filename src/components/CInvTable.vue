@@ -16,17 +16,10 @@
       </template>
       <template v-slot:item.actions="{ item }">
         <v-row>
-          <div class="circle">
-            <v-icon small>fa fa-user</v-icon>
-          </div>
-          <div class="circle">
-            <v-icon small>fa fa-envelope</v-icon>
-          </div>
-          <div class="circle">
-            <v-icon small>fa fa-check</v-icon>
-          </div>
-          <div class="circle">
-            <v-icon small>far fa-eye</v-icon>
+          <div class="circle" v-for="icon in icons" v-bind:key="icon.name">
+            <router-link :to="icon.url">
+              <v-icon small>{{ icon.name }}</v-icon>
+            </router-link>
           </div>
         </v-row>
       </template>
@@ -34,12 +27,18 @@
   </v-card>
 </template>
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "CInvTable",
   computed: mapGetters(["createdInvs"]),
   data() {
     return {
+      icons: [
+        { name: "fa fa-user", url: "" },
+        { name: "fa fa-envelope", url: "" },
+        { name: "fa fa-check", url: "" },
+        { name: "far fa-eye", url: "" },
+      ],
       singleSelect: false,
       selected: [],
       headers: [
@@ -58,15 +57,6 @@ export default {
       ],
     };
   },
-  methods: {
-    callselected() {
-      console.log(
-        "-----------*******************************----------",
-        this.selected
-      );
-    },
-  },
-  created() {},
 };
 </script>
 <style>

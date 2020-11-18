@@ -16,14 +16,15 @@
             class="justify-space-between invd"
             :class="issingleuser ? 'd-flex' : 'd-none'"
             v-for="invoice in selected"
+            :key="invoice.invoiceID"
           >
             <input type="checkbox" class="check" />
-            <p v-for="value in invoice" class="mb-1">
+            <p v-for="value in invoice" class="mb-1" :key="value">
               {{ value }}
             </p>
           </v-container>
           <v-row :class="issingleuser ? '' : 'd-none'">
-            <v-col md="6" v-for="item in currencies" v-key="item.currency">
+            <v-col md="6" v-for="item in currencies" :key="item.currency">
               <label>{{ item.currency }}</label>
               <v-select
                 :items="item.values"
@@ -36,15 +37,16 @@
           <v-container
             v-for="invoice in selected"
             :class="issingleuser ? 'd-none' : ''"
+            :key="invoice.invoiceID"
           >
             <v-container fluid class="d-flex justify-space-between invd">
               <input type="checkbox" class="check" />
-              <p v-for="value in invoice" class="mb-1">
+              <p v-for="value in invoice" class="mb-1" :key="value">
                 {{ value }}
               </p>
             </v-container>
             <v-row>
-              <v-col md="6" v-for="item in currencies" v-key="item.currency">
+              <v-col md="6" v-for="item in currencies" :key="item.currency">
                 <label>{{ item.currency }}</label>
                 <v-select
                   :items="item.values"
@@ -70,11 +72,7 @@
         <v-card-actions>
           <v-container class="d-flex mr-4">
             <v-spacer></v-spacer>
-            <v-btn
-              class="blue-grey darken-1 white--text"
-              text
-              @click="$emit('closeOtoOModal')"
-            >
+            <v-btn class="blue-grey darken-1 white--text" text @click="close">
               Send Email
             </v-btn>
           </v-container>
@@ -96,7 +94,6 @@ export default {
   methods: {
     close() {
       this.$emit("closeOtoOModal");
-      console.log("on modal close ==> ", this.selected);
     },
   },
   data() {

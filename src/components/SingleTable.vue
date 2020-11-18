@@ -47,9 +47,9 @@
       </tbody>
     </table>
     <v-list class="tablelist">
-      <v-list-item v-for="(item, i) in payments" key="i" class="tablelistitem">
+      <v-list-item v-for="(item, i) in payments" :key="i" class="tablelistitem">
         <v-list width="100%">
-          <v-list-item v-for="(itemname, j) in headers" key="j">
+          <v-list-item v-for="(itemname, j) in headers" :key="j">
             {{ itemname.text }}
             <v-spacer></v-spacer>
             {{ item[itemname.value] }}

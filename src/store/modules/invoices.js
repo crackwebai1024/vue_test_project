@@ -1,4 +1,3 @@
-import axios from "axios";
 import { invoiceData, creatInvData } from "./invoicedata";
 
 const state = {
@@ -30,14 +29,6 @@ const actions = {
         billingDate < endDate &&
         searchData.customerName === item.customerName
       ) {
-        console.log(
-          item,
-          "data in store ==>",
-          startDate,
-          endDate,
-          arrivalDate,
-          billingDate
-        );
         return item;
       }
     });

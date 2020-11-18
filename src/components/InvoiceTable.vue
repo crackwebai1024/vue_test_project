@@ -4,26 +4,16 @@
       v-model="selected"
       :headers="headers"
       :items="allInvoices"
-      :single-select="true"
+      :singleSelect="true"
       item-key="invoiceID"
       show-select
       class="elevation-1"
     >
-      <template v-slot:top>
-        <v-switch v-model="singleSelect" label="Single select" class="pa-3">
-        </v-switch>
-      </template>
       <template v-slot:item.actions="{ item }">
         <v-row>
-          <div class="circle">
-            <v-icon small>far fa-file-alt</v-icon>
-          </div>
-          <div class="circle">
-            <v-icon small>fas fa-exchange-alt</v-icon>
-          </div>
-          <div class="circle">
-            <router-link to="/invoice">
-              <v-icon small>far fa-eye</v-icon>
+          <div class="circle" v-for="icon in icons" v-bind:key="icon.name">
+            <router-link :to="icon.url">
+              <v-icon small>{{ icon.name }}</v-icon>
             </router-link>
           </div>
         </v-row>
@@ -32,12 +22,17 @@
   </v-card>
 </template>
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "InvoiceTable",
   computed: mapGetters(["allInvoices"]),
   data() {
     return {
+      icons: [
+        { name: "far fa-file-alt", url: "" },
+        { name: "fas fa-exchange-alt", url: "" },
+        { name: "far fa-eye", url: "/invoice" },
+      ],
       selected: [],
       headers: [
         {
@@ -58,14 +53,6 @@ export default {
       ],
     };
   },
-  methods: {
-    getColor(calories) {
-      if (calories > 400) return "red";
-      else if (calories > 200) return "orange";
-      else return "orange";
-    },
-  },
-  created() {},
 };
 </script>
 <style>
@@ -78,5 +65,8 @@ export default {
   margin-right: 5px;
   border-radius: 50%;
   border: solid 2px grey;
+}
+.circle:hover {
+  background-color: #999;
 }
 </style>

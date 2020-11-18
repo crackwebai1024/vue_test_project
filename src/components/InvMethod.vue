@@ -63,7 +63,7 @@
 </template>
 <script>
 import Calendar from "./Calendar";
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 import Confirm from "./Confirm.vue";
 export default {
   name: "InvMethod",
@@ -73,7 +73,7 @@ export default {
   },
   data: () => ({
     dialog: false,
-    items: ["Foo", "Bar", "Fizz", "Buzz"],
+    items: ["All", "Reconciled", "Unreconciled"],
     startDate: new Date().toISOString().substr(0, 10),
     endDate: new Date().toISOString().substr(0, 10),
     customerName: "",
@@ -82,11 +82,9 @@ export default {
   methods: {
     ...mapActions(["fetchInvoices"]),
     setStartDate(date) {
-      console.log("occur setstartdate function");
       this.startDate = date;
     },
     setEndDate(date) {
-      console.log("occur setenddate function");
       this.endDate = date;
     },
     setCustomerName(customerName) {
@@ -103,12 +101,10 @@ export default {
         endDate: this.endDate,
         customerName: this.customerName,
       };
-      console.log(intdate);
       this.fetchInvoices(intdate);
     },
     openModal() {
       this.dialog = true;
-      console.log(this.dialog);
     },
     closeModal() {
       this.dialog = false;

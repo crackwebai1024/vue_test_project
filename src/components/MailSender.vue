@@ -15,6 +15,14 @@
           Email All Invoices
         </v-btn>
       </v-row>
+      <v-alert
+        dense
+        border="left"
+        type="warning"
+        :class="error ? '' : 'd-none'"
+      >
+        {{ error }}
+      </v-alert>
       <OnetoOne
         :otodialog="otodialog"
         :selected="selected"
@@ -35,6 +43,7 @@ export default {
       otodialog: false,
       otmdialog: false,
       issingleuser: true,
+      error: "",
     };
   },
   methods: {
@@ -42,12 +51,18 @@ export default {
       if (this.selected.length > 0) {
         this.otodialog = true;
         this.issingleuser = true;
+        this.error = "";
+      } else {
+        this.error = "Please select invoice to send";
       }
     },
     openOtoMModal() {
       if (this.selected.length > 0) {
         this.otodialog = true;
         this.issingleuser = false;
+        this.error = "";
+      } else {
+        this.error = "Please select invoice to send";
       }
     },
     closeOtoOModal() {
