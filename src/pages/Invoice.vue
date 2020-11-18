@@ -1,5 +1,6 @@
 <template>
-  <v-container class="pa-10" fluid>
+  <v-container class="px-10 my-15" fluid>
+    <app-bar />
     <h1 class="cyan--text text--darken-2 font-weight-light">
       Customer Invoice No. 123456
     </h1>
@@ -56,11 +57,13 @@
 <script>
 import SingleTable from "../components/SingleTable";
 import BankDetails from "../components/BankDetails.vue";
+import AppBar from "../components/AppBar.vue";
 export default {
   name: "Customer",
   components: {
     SingleTable,
     BankDetails,
+    AppBar,
   },
   data() {
     return {

@@ -12,14 +12,19 @@
         </v-card-title>
         <v-card-text> </v-card-text>
         <v-card-actions class="d-flex justify-center">
-          <v-btn class="grey darken-6" text @click="$emit('closeModal')">
+          <v-btn class="grey darken-6 mr-5" text @click="$emit('closeModal')">
             No
           </v-btn>
-          <v-btn class="grey darken-1" text @click="$emit('closeModal')">
-            <router-link to="/createdinv">
+          <router-link to="/createdinv">
+            <v-btn
+              class="grey darken-1"
+              color="white"
+              text
+              @click="$emit('closeModal')"
+            >
               Yes
-            </router-link>
-          </v-btn>
+            </v-btn>
+          </router-link>
         </v-card-actions>
       </v-card>
     </v-dialog>

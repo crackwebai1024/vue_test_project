@@ -21,4 +21,7 @@ div.v-avatar.blue-grey {
 .col {
   flex-basis: 100%;
 }
+a {
+  text-decoration: none;
+}
 </style>

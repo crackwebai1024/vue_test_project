@@ -13,11 +13,6 @@
         <v-switch v-model="singleSelect" label="Single select" class="pa-3">
         </v-switch>
       </template>
-      <template v-slot:item.customerName="{ item }">
-        <v-chip :color="getColor(item.invoiceID)" dark>
-          {{ item.customerName }}
-        </v-chip>
-      </template>
       <template v-slot:item.actions="{ item }">
         <v-row>
           <div class="circle">

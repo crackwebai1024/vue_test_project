@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app color="blue-grey" darken-3> </v-app-bar>
+    <app-bar></app-bar>
     <v-navigation-drawer
       color="blue-grey"
       darken-3
@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+import AppBar from "../components/AppBar.vue";
 import CInvTable from "../components/CInvTable";
 import MailSender from "../components/MailSender";
 export default {
@@ -27,6 +28,7 @@ export default {
   components: {
     MailSender,
     CInvTable,
+    AppBar,
   },
   data() {
     return {
