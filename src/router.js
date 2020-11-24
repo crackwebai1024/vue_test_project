@@ -7,21 +7,20 @@ import CreatedInv from "./pages/CreatedInv";
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home,
-    },
-    {
-      path: "/invoice",
-      name: "invoice",
-      component: Invoice,
-    },
-    {
-      path: "/createdinv",
-      name: "createdinv",
-      component: CreatedInv,
-    },
-  ],
+    routes: [{
+            path: "/",
+            name: "home",
+            component: Home,
+        },
+        {
+            path: "/invoice",
+            name: "invoice",
+            component: Invoice,
+        },
+        {
+            path: "/createdinv",
+            name: "createdinv",
+            component: CreatedInv,
+        },
+    ],
 });
